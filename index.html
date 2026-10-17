@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d1013" />
+  <meta name="description" content="Portfolio of Kervin Ong — computer science student exploring systems engineering, computer graphics, and cybersecurity." />
+  <meta property="og:title" content="Kervin Ong — Portfolio" />
+  <meta property="og:description" content="Selected projects in C++, Unity, performance engineering and graphics." />
+  <meta property="og:type" content="website" />
+  <title>Kervin Ong — Software & Systems Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="site-noise" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Kervin Ong, homepage"><span class="brand-mark">K<span>O</span><i>.</i></span><span class="brand-label">PORTFOLIO<span> / 2026</span></span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#work">Work <span>01</span></a>
+        <a href="#about">About <span>02</span></a>
+        <a href="#toolkit">Toolkit <span>03</span></a>
+        <a href="#contact">Contact <span>04</span></a>
+      </nav>
+      <a class="header-action" href="https://www.linkedin.com/in/kervin-ong/" target="_blank" rel="noopener noreferrer">Let's connect <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-orbit orbit-one" aria-hidden="true"></div><div class="hero-orbit orbit-two" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="pulse-dot"></span> COMPUTER SCIENCE STUDENT <span class="eyebrow-divider">/</span> SINGAPORE</p>
+          <h1 id="hero-heading">Building what’s<br/><span class="serif-accent">under the</span> <span class="outline-word">hood.</span></h1>
+          <p class="hero-subtitle">I’m <strong>Kervin</strong> — a computer science student who enjoys the intersection of <em>low-level systems</em>, <em>interactive software</em> and <em>cybersecurity</em>.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/kervino" target="_blank" rel="noopener noreferrer">GitHub profile <span aria-hidden="true">↗</span></a></div>
+          <div class="hero-meta"><span><span class="meta-star">✳</span> Available to connect about internships</span><span>Scroll to explore <span aria-hidden="true">↓</span></span></div>
+        </div>
+        <div class="hero-visual reveal" aria-label="Architecture illustration of a Unity app connected through a C sharp bridge and C API to a C plus plus library" role="img">
+          <div class="visual-heading"><span><i class="visual-led"></i> SYSTEM OVERVIEW</span><span>WAYFORGE // 01</span></div>
+          <div class="architecture">
+            <div class="arch-node arch-top"><span class="arch-node-icon">◈</span><span><small>APPLICATION LAYER</small><strong>Unity</strong></span><span class="arch-node-ext">↗</span></div>
+            <div class="arch-connector"><span></span><b>managed</b><span></span></div>
+            <div class="arch-node"><span class="arch-node-icon">{ }</span><span><small>INTEROP LAYER</small><strong>C# / P·Invoke</strong></span><span class="arch-node-ext">↗</span></div>
+            <div class="arch-connector"><span></span><b>boundary</b><span></span></div>
+            <div class="arch-node arch-accent"><span class="arch-node-icon">&lt;/&gt;</span><span><small>NATIVE INTERFACE</small><strong>C API → C++ Core</strong></span><span class="arch-node-ext">↗</span></div>
+          </div>
+          <div class="visual-footer"><span>INTEGRATION / BUILD / TEST</span><span class="visual-signal"><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="visual-index">001<span> / SYSTEMS</span></div>
+        </div>
+      </section>
+
+      <section class="section work-section" id="work" aria-labelledby="work-heading">
+        <div class="section-intro reveal"><div><p class="section-kicker"><span>01</span> / SELECTED WORK</p><h2 id="work-heading">Projects with <span class="serif-accent">purpose.</span></h2></div><p>A selection of technical work across systems, performance, and graphics. Each project is a chance to learn something new.</p></div>
+        <div class="projects-grid">
+          <a class="project-card project-card-wide reveal" href="projects/wayforge.html" aria-label="Read Wayforge project case study">
+            <div class="project-art art-wayforge"><span class="art-watermark">01</span><div class="art-grid" aria-hidden="true"></div><div class="art-flow" aria-hidden="true"><div class="art-flow-box">UNITY<span>01</span></div><div class="art-flow-line"></div><div class="art-flow-box">C# BRIDGE<span>02</span></div><div class="art-flow-line"></div><div class="art-flow-box art-flow-focus">C++ API<span>03</span></div></div><span class="art-label">NATIVE INTEGRATION / CROSS-PLATFORM</span></div>
+            <div class="project-body"><div class="project-topline"><span class="project-type">SYSTEMS ENGINEERING</span><span class="project-status"><span class="status-dot"></span> IN PROGRESS</span></div><div class="project-title-row"><h3>Wayforge <span class="project-slash">/</span> RTIS 2</h3><span class="project-arrow" aria-hidden="true">↗</span></div><p>Connecting a native C++ library with Unity through a C API and C# bridge, with cross-platform build and test workflows.</p><div class="tag-list"><span>C++</span><span>C#</span><span>Unity</span><span>CMake</span></div></div>
+          </a>
+          <a class="project-card reveal" href="projects/dot-product.html" aria-label="Read dot product optimization project case study">
+            <div class="project-art art-dot"><span class="art-watermark">02</span><div class="dot-panel" aria-hidden="true"><div><span>SCALAR</span><b class="dot-track"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div><div><span>UNROLLED</span><b class="dot-track"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div><div><span>SIMD</span><b class="dot-track"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div><div><span>THREADS</span><b class="dot-track"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></b></div></div><span class="art-label">PERFORMANCE / COMPUTE</span></div>
+            <div class="project-body"><div class="project-topline"><span class="project-type">LOW-LEVEL OPTIMIZATION</span><span class="project-status">COURSEWORK</span></div><div class="project-title-row"><h3>Dot Product Optimization</h3><span class="project-arrow" aria-hidden="true">↗</span></div><p>Exploring scalar, loop-unrolled, SSE2 SIMD, and pthread implementations of a fundamental compute operation.</p><div class="tag-list"><span>C</span><span>SIMD</span><span>pthreads</span><span>Profiling</span></div></div>
+          </a>
+          <a class="project-card reveal" href="projects/graphics.html" aria-label="Read graphics and spatial data structures project page">
+            <div class="project-art art-graphics"><span class="art-watermark">03</span><svg class="spatial-illustration" viewBox="0 0 400 210" role="img" aria-label="Decorative illustration of spatial subdivisions"><rect x="54" y="18" width="292" height="174" rx="2" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".7"/><path d="M206 18v174M54 111h152M206 76h140M277 76v116M54 60h152" stroke="currentColor" stroke-width="1.1" opacity=".55"/><rect x="208" y="79" width="66" height="110" fill="var(--color-accent)" opacity=".13"/><circle cx="99" cy="38" r="7" fill="var(--color-accent)"/><circle cx="159" cy="142" r="6" fill="var(--color-accent)"/><circle cx="304" cy="111" r="7" fill="var(--color-accent)"/><circle cx="240" cy="150" r="5" fill="var(--color-accent)"/><circle cx="91" cy="82" r="4" fill="currentColor"/><circle cx="318" cy="54" r="4" fill="currentColor"/></svg><span class="art-label">SPATIAL DATA / GRAPHICS</span></div>
+            <div class="project-body"><div class="project-topline"><span class="project-type">GRAPHICS & ALGORITHMS</span><span class="project-status">WRITE-UP IN PROGRESS</span></div><div class="project-title-row"><h3>BVH & KD-Tree Exploration</h3><span class="project-arrow" aria-hidden="true">↗</span></div><p>A space to document graphics coursework and spatial acceleration structures. Details and visuals to be expanded.</p><div class="tag-list"><span>C++</span><span>Algorithms</span><span>Graphics</span></div></div>
+          </a>
+          <article class="project-card roadmap-card reveal"><div class="roadmap-inner"><div class="roadmap-top"><span class="project-type">WHAT'S NEXT</span><span class="roadmap-spark">✳</span></div><div class="roadmap-graphic" aria-hidden="true"><div class="packet">[ 192.168.x.x ]<span>TCP / IP</span></div><div class="packet-line"></div><div class="packet packet-last">{ inspect → understand }</div></div><h3>Back to <span class="serif-accent">security.</span></h3><p>Planning a hands-on network traffic analysis project to refresh and build on my cybersecurity background.</p><div class="roadmap-footer"><span>Wireshark</span><span>Python</span><span>Linux</span><span>PLANNED ↗</span></div></div></article>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-heading">
+        <div class="about-number" aria-hidden="true">02</div>
+        <div class="about-label reveal"><p class="section-kicker"><span>02</span> / ABOUT ME</p><p class="about-caption">WHO I AM / WHAT DRIVES ME</p></div>
+        <div class="about-content reveal"><h2 id="about-heading">Curious about<br/><span class="serif-accent">how things work.</span></h2><div class="about-columns"><p>I'm currently studying computer science at the <strong>Singapore Institute of Technology</strong>, building on a diploma background in <strong>Cybersecurity & Digital Forensics</strong> from Ngee Ann Polytechnic.</p><p>My interests range from C++ systems programming and graphics to networking and security. I enjoy moving between the details of how software runs and the bigger picture of what it helps people do.</p></div><a class="inline-arrow" href="https://www.linkedin.com/in/kervin-ong/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section class="section toolkit-section" id="toolkit" aria-labelledby="toolkit-heading"><div class="section-intro reveal"><div><p class="section-kicker"><span>03</span> / TOOLKIT</p><h2 id="toolkit-heading">What I work <span class="serif-accent">with.</span></h2></div><p>Some of the languages, technologies and tools I've used through projects and coursework.</p></div>
+        <div class="toolkit-grid reveal"><div class="toolkit-group"><div class="toolkit-group-heading"><span>01 / LANGUAGES</span><span aria-hidden="true">↗</span></div><div class="toolkit-tags"><span>C++</span><span>C</span><span>C#</span><span>Python</span><span>HTML / CSS</span></div></div><div class="toolkit-group"><div class="toolkit-group-heading"><span>02 / DEVELOPMENT</span><span aria-hidden="true">↗</span></div><div class="toolkit-tags"><span>Unity</span><span>CMake</span><span>Git</span><span>Visual Studio</span><span>Linux</span></div></div><div class="toolkit-group"><div class="toolkit-group-heading"><span>03 / AREAS OF INTEREST</span><span aria-hidden="true">↗</span></div><div class="toolkit-tags"><span>Systems Programming</span><span>Computer Graphics</span><span>Cybersecurity</span><span>Networking</span><span>Wireshark</span></div></div></div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-heading"><div class="contact-glow" aria-hidden="true"></div><div class="contact-main reveal"><p class="section-kicker"><span>04</span> / GET IN TOUCH</p><h2 id="contact-heading">Let's build<br/><span class="serif-accent">something good.</span></h2><p>Interested in discussing an internship, a project, or just exchanging ideas? I'd love to connect.</p><a class="button button-primary" href="https://www.linkedin.com/in/kervin-ong/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a><div class="additional-links" id="additional-links" aria-label="Additional profile links"></div></div><div class="contact-decoration" aria-hidden="true">↗</div></section>
+    </main>
+    <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-mark">K<span>O</span><i>.</i></span></a><span>Designed & built with curiosity. © <span id="footer-year">2026</span> Kervin Ong.</span><a href="#top">Back to top ↑</a></footer>
+  </div>
+</body>
+</html>
