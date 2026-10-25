@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0d1013" />
   <meta name="description" content="Portfolio of Kervin Ong — computer science student exploring systems engineering, computer graphics, and cybersecurity." />
   <meta property="og:title" content="Kervin Ong — Portfolio" />
-  <meta property="og:description" content="Selected projects in C++, Unity, performance engineering and graphics." />
+  <meta property="og:description" content="Projects in cybersecurity, C++, Unity, performance engineering and graphics." />
   <meta property="og:type" content="website" />
   <title>Kervin Ong — Software & Systems Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -54,7 +54,7 @@
       </section>
 
       <section class="section work-section" id="work" aria-labelledby="work-heading">
-        <div class="section-intro reveal"><div><p class="section-kicker"><span>01</span> / SELECTED WORK</p><h2 id="work-heading">Projects with <span class="serif-accent">purpose.</span></h2></div><p>A selection of technical work across systems, performance, and graphics. Each project is a chance to learn something new.</p></div>
+        <div class="section-intro reveal"><div><p class="section-kicker"><span>01</span> / SELECTED WORK</p><h2 id="work-heading">Projects with <span class="serif-accent">purpose.</span></h2></div><p>A selection of projects across security, native systems, performance and graphics — built to turn technical ideas into working software.</p></div>
         <div class="projects-grid">
           <a class="project-card project-card-wide reveal" href="projects/wayforge.html" aria-label="Read Wayforge project case study">
             <div class="project-art art-wayforge"><span class="art-watermark">01</span><div class="art-grid" aria-hidden="true"></div><div class="art-flow" aria-hidden="true"><div class="art-flow-box">UNITY<span>01</span></div><div class="art-flow-line"></div><div class="art-flow-box">C# BRIDGE<span>02</span></div><div class="art-flow-line"></div><div class="art-flow-box art-flow-focus">C++ API<span>03</span></div></div><span class="art-label">NATIVE INTEGRATION / CROSS-PLATFORM</span></div>
@@ -68,7 +68,21 @@
             <div class="project-art art-graphics"><span class="art-watermark">03</span><svg class="spatial-illustration" viewBox="0 0 400 210" role="img" aria-label="Decorative illustration of spatial subdivisions"><rect x="54" y="18" width="292" height="174" rx="2" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".7"/><path d="M206 18v174M54 111h152M206 76h140M277 76v116M54 60h152" stroke="currentColor" stroke-width="1.1" opacity=".55"/><rect x="208" y="79" width="66" height="110" fill="var(--color-accent)" opacity=".13"/><circle cx="99" cy="38" r="7" fill="var(--color-accent)"/><circle cx="159" cy="142" r="6" fill="var(--color-accent)"/><circle cx="304" cy="111" r="7" fill="var(--color-accent)"/><circle cx="240" cy="150" r="5" fill="var(--color-accent)"/><circle cx="91" cy="82" r="4" fill="currentColor"/><circle cx="318" cy="54" r="4" fill="currentColor"/></svg><span class="art-label">SPATIAL DATA / GRAPHICS</span></div>
             <div class="project-body"><div class="project-topline"><span class="project-type">GRAPHICS & ALGORITHMS</span><span class="project-status">WRITE-UP IN PROGRESS</span></div><div class="project-title-row"><h3>BVH & KD-Tree Exploration</h3><span class="project-arrow" aria-hidden="true">↗</span></div><p>A space to document graphics coursework and spatial acceleration structures. Details and visuals to be expanded.</p><div class="tag-list"><span>C++</span><span>Algorithms</span><span>Graphics</span></div></div>
           </a>
-          <article class="project-card roadmap-card reveal"><div class="roadmap-inner"><div class="roadmap-top"><span class="project-type">WHAT'S NEXT</span><span class="roadmap-spark">✳</span></div><div class="roadmap-graphic" aria-hidden="true"><div class="packet">[ 192.168.x.x ]<span>TCP / IP</span></div><div class="packet-line"></div><div class="packet packet-last">{ inspect → understand }</div></div><h3>Back to <span class="serif-accent">security.</span></h3><p>Planning a hands-on network traffic analysis project to refresh and build on my cybersecurity background.</p><div class="roadmap-footer"><span>Wireshark</span><span>Python</span><span>Linux</span><span>PLANNED ↗</span></div></div></article>
+          <a class="project-card project-card-wide netlens-card reveal" href="projects/netlens.html" aria-label="Read NetLens cybersecurity case study">
+            <div class="project-art art-netlens">
+              <span class="art-watermark" aria-hidden="true">02</span>
+              <div class="nl-visual" aria-hidden="true">
+                <div class="nl-head"><span><i class="nl-led"></i> NETLENS / DETECTION ENGINE</span><span>PCAP → INSIGHT</span></div>
+                <div class="nl-content">
+                  <div class="nl-code"><span class="nl-dim">$ python analyze.py capture.pcap</span><span class="nl-headline">Potential TCP SYN scan <b>detected</b></span><span><i>SRC</i> 192.0.2.10 <i class="nl-arrow">→</i> 198.51.100.50</span><span><i>PORTS</i> 21 · 22 · 23 · 25 · 80 · 443 · 8080</span><span class="nl-dim">7 distinct ports / 60-second window</span></div>
+                  <div class="nl-meter"><div class="nl-meter-title">PROTOCOL MIX<span> SYNTHETIC CAPTURE</span></div><div class="nl-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="nl-legend"><span>TCP</span><span>UDP</span><span>OTHER</span></div></div>
+                </div>
+                <div class="nl-foot">OFFLINE FORENSICS <span>04 / 04 TESTS PASS</span></div>
+              </div>
+              <span class="art-label">NETWORK ANALYSIS / DEFENSIVE SECURITY</span>
+            </div>
+            <div class="project-body"><div class="project-topline"><span class="project-type">CYBERSECURITY / PYTHON</span><span class="project-status"><span class="status-dot"></span> PUBLISHED ON GITHUB</span></div><div class="project-title-row"><h3>NetLens <span class="project-slash">/</span> Network Traffic Analyzer</h3><span class="project-arrow" aria-hidden="true">↗</span></div><p>An offline PCAP analysis tool built with Python and Scapy. Summarizes network traffic, exports TXT/JSON reports, and flags potential TCP SYN port scans using a time-windowed heuristic.</p><div class="tag-list"><span>Python</span><span>Scapy</span><span>TCP/IP</span><span>JSON</span><span>unittest</span></div></div>
+          </a>
         </div>
       </section>
 
