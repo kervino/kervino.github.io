@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0e1c">
+  <meta name="description" content="KO Lab — an interactive illustrated workspace for software engineering, systems programming, and cybersecurity projects.">
+  <title>KO Lab | Kervin's Developer Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#explore">Skip to room and project controls</a>
+  <div class="site-shell">
+    <main id="explore" class="stage" aria-label="KO Lab interactive developer room">
+      <div class="ambient ambient-left" aria-hidden="true"></div>
+      <div class="ambient ambient-right" aria-hidden="true"></div>
+      <header class="intro" aria-label="KO Lab introduction">
+        <p class="intro-kicker">PERSONAL WORKSPACE <span class="kicker-line" aria-hidden="true"></span> EST. 2026</p>
+        <h1>KO <span>LAB</span><span class="title-cursor" aria-hidden="true">_</span></h1>
+        <p class="intro-sub">KERVIN'S DEVELOPER LAB</p>
+        <div class="intro-desc">
+          <p>A small room for big ideas.</p>
+          <p>Systems, graphics and security projects—built and explored here.</p>
+        </div>
+        <p class="intro-hint"><span aria-hidden="true">↗</span> Click an object in the room to explore.</p>
+        <a class="classic-link" href="../index.html">← Classic portfolio</a>
+      </header>
+
+      <aside class="status-panel" aria-label="KO Lab status">
+        <div class="status-title"><span>KO LAB</span><span>v0.3 / LAB APPS</span></div>
+        <p class="online"><span class="online-dot" aria-hidden="true"></span> SYSTEM ONLINE</p>
+        <p><span aria-hidden="true">›</span> 4 CASE STUDIES</p>
+        <p><span aria-hidden="true">›</span> 8 ROOM OBJECTS</p>
+        <p><span aria-hidden="true">›</span> WINDOWS: ACTIVE</p>
+        <div class="status-footer">RTIS / SYSTEMS / SECURITY</div>
+      </aside>
+
+      <section class="room-shell" aria-label="Interactive room illustration">
+        <div class="room-illustration-wrap">
+          <img class="room-art" src="assets/ko-lab-room.webp" alt="Warm isometric developer room with shelves, two glowing monitors, desks, a printer, an engineering wall board, a server cabinet and folders." width="1024" height="1024" fetchpriority="high">
+          <!-- The artwork has no baked-in controls. Each label is an actual HTML button. -->
+          <button class="hotspot" style="--x:43%;--y:25%;" data-app="about" aria-label="Explore About Me and Skills"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">▤</span> BOOKSHELF</span></button>
+          <button class="hotspot" style="--x:42%;--y:44%;" data-app="terminal" aria-label="Explore Terminal"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">›_</span> TERMINAL</span></button>
+          <button class="hotspot" style="--x:28%;--y:55%;" data-app="netlens" aria-label="Explore NetLens project"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">⌁</span> NETLENS</span></button>
+          <button class="hotspot" style="--x:80%;--y:36%;" data-app="wayforge" aria-label="Explore Wayforge project"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">⌖</span> WAYFORGE</span></button>
+          <button class="hotspot" style="--x:67%;--y:49%;" data-app="graphics" aria-label="Explore Graphics Lab project"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">▣</span> GRAPHICS LAB</span></button>
+          <button class="hotspot" style="--x:86%;--y:63%;" data-app="systems" aria-label="Explore Systems Lab project"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">▥</span> SYSTEMS LAB</span></button>
+          <button class="hotspot" style="--x:51%;--y:70%;" data-app="resume" aria-label="Explore Resume"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">▤</span> RESUME</span></button>
+          <button class="hotspot" style="--x:16%;--y:61%;" data-app="contact" aria-label="Explore Contact"><span class="hotspot-pin" aria-hidden="true"></span><span class="hotspot-label"><span class="label-icon" aria-hidden="true">✉</span> CONTACT</span></button>
+        </div>
+      </section>
+
+      <!-- A real app window rather than the old bottom-left information popup. -->
+      <section class="lab-window" id="app-window" role="dialog" aria-modal="false" aria-labelledby="window-title" hidden>
+        <header class="window-titlebar" id="window-titlebar">
+          <div class="window-identity"><span class="window-mini-icon" id="window-mini-icon" aria-hidden="true">◈</span><span>KO LAB <span class="window-separator">/</span> <span id="window-path">APPS/NETLENS.EXE</span></span></div>
+          <div class="window-controls">
+            <button type="button" id="window-min" aria-label="Minimize application" title="Minimize">−</button>
+            <button type="button" id="window-max" aria-label="Maximize application" title="Maximize">□</button>
+            <button type="button" id="window-close" aria-label="Close application" title="Close">×</button>
+          </div>
+        </header>
+        <div class="window-toolbar"><span class="window-light" aria-hidden="true"></span><span id="window-breadcrumb">WORKSPACE / PROJECTS</span><span class="window-readonly">VIEW ONLY</span></div>
+        <div class="window-body">
+          <div class="window-visual" id="window-visual" aria-label="Illustrative project visual"></div>
+          <div class="window-information">
+            <div class="window-category" id="window-category">PROJECT / SOFTWARE</div>
+            <h2 id="window-title">Project name</h2>
+            <p class="window-description" id="window-description"></p>
+            <div class="window-tags" id="window-tags" aria-label="Technologies"></div>
+            <div class="window-actions" id="window-actions"></div>
+          </div>
+        </div>
+        <footer class="window-status"><span id="window-status">PROJECT MODULE LOADED</span><span><span class="status-led" aria-hidden="true"></span> LOCAL PREVIEW</span></footer>
+      </section>
+    </main>
+
+    <nav class="dock" aria-label="Lab quick navigation">
+      <button type="button" class="dock-brand" id="home-button" aria-label="Return to room"><span class="dock-grid" aria-hidden="true">▦</span><strong>KO LAB</strong></button>
+      <div class="dock-links">
+        <button type="button" class="dock-button" id="project-button" aria-expanded="false" aria-controls="project-menu"><span aria-hidden="true">▱</span> PROJECTS</button>
+        <button type="button" class="dock-button" data-app="terminal"><span aria-hidden="true">›_</span> TERMINAL</button>
+        <button type="button" class="dock-button" data-app="resume"><span aria-hidden="true">▤</span> RESUME</button>
+        <button type="button" class="dock-button" data-app="contact"><span aria-hidden="true">✉</span> CONTACT</button>
+      </div>
+      <button type="button" class="dock-task" id="dock-task" aria-label="Restore minimized application" hidden><span id="dock-task-icon" aria-hidden="true">▣</span><span id="dock-task-name">APP</span></button>
+      <div class="dock-end"><span class="dock-signal" aria-hidden="true">◉</span><span>STUDIO / ONLINE</span></div>
+    </nav>
+
+    <section class="project-menu" id="project-menu" aria-label="Project directory" hidden>
+      <div class="menu-header"><span>PROJECT EXPLORER</span><button type="button" id="close-menu" aria-label="Close project directory">×</button></div>
+      <p>Select a project to preview its contents.</p>
+      <div class="project-buttons">
+        <button type="button" data-app="netlens"><span>01</span><strong>NetLens</strong><small>Python / Cybersecurity</small></button>
+        <button type="button" data-app="wayforge"><span>02</span><strong>Wayforge</strong><small>C++ / Backend</small></button>
+        <button type="button" data-app="graphics"><span>03</span><strong>Graphics Lab</strong><small>C++ / OpenGL</small></button>
+        <button type="button" data-app="systems"><span>04</span><strong>Systems Lab</strong><small>SIMD / Profiling</small></button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
