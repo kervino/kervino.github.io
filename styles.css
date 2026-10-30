@@ -237,5 +237,38 @@ html[data-theme=dark] .icon-button .sun{display:block}
 @media(max-width:380px){.nav-links a:nth-child(2){display:none}.nav-links{gap:14px}.eyebrow{font-size:9px;gap:8px}.hero h1{font-size:39px}.hero-ctas{gap:12px}.text-link{font-size:11px}.visual-note-top{right:-3px}.visual-note-bottom{left:-5px}.terminal-head{font-size:8px}.terminal-stats strong{font-size:25px}.case-meta{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;transition-delay:0s!important}.js-ready .reveal:not(.is-visible){opacity:1;transform:none}.reveal{opacity:1!important;transform:none!important}}
 
+
+/* V3.2 — subtle cursor-responsive warm light and spreading ripples.
+   Restricted to the hero visual and project artwork, never text or the page cursor. */
+:root{--reactive-halo:rgba(176,101,67,.065);--reactive-ring:rgba(170,96,66,.48)}
+html[data-theme="dark"]{--reactive-halo:rgba(238,166,131,.055);--reactive-ring:rgba(245,180,146,.39)}
+.reactive-surface{--spot-x:50%;--spot-y:50%;position:relative;isolation:isolate}
+.reactive-surface::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  z-index:2;background:radial-gradient(135px circle at var(--spot-x) var(--spot-y),var(--reactive-halo) 0%,transparent 77%);
+  opacity:0;transition:opacity .35s ease;
+}
+.reactive-surface.is-pointer-active::after{opacity:1}
+.hover-ripple{
+  position:absolute;left:var(--ripple-x);top:var(--ripple-y);
+  width:var(--ripple-size,175px);height:var(--ripple-size,175px);
+  border:1px solid var(--reactive-ring);border-radius:50%;pointer-events:none;
+  z-index:2;opacity:0;transform:translate(-50%,-50%) scale(.15);
+  animation:hover-wave .94s cubic-bezier(.19,.65,.23,1) forwards;
+}
+@keyframes hover-wave{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.15)}
+  17%{opacity:.66}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1)}
+}
+/* Hero waves live behind the content instead of washing out the text. */
+.hero-visual.reactive-surface::after{z-index:0;background:radial-gradient(175px circle at var(--spot-x) var(--spot-y),var(--reactive-halo),transparent 77%)}
+.hero-visual .hover-ripple{z-index:0;--ripple-size:310px}
+.hero-visual .workbench,.hero-visual .visual-note{z-index:1}
+/* Keep project-art labels crisp and clickable. */
+.project-card .art.reactive-surface .art-label{z-index:3}
+@media (hover:none),(pointer:coarse){.reactive-surface::after{display:none}}
+@media(prefers-reduced-motion:reduce){.reactive-surface::after,.hover-ripple{display:none!important}}
+
 /* Keep decorative ambient glows from creating mobile horizontal scrolling. */
 @media(max-width:620px){.hero-visual{overflow:clip}}

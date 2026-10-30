@@ -61,6 +61,67 @@
     if (emptyNotice) emptyNotice.hidden = shown > 0;
   }));
 
+  // Pointer ripples are purely decorative: no custom cursor, no moving links.
+  // Limit updates to actual hover-capable pointer devices, and respect reduced motion.
+  const canHoverAnimate = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canHoverAnimate) {
+    document.querySelectorAll('.reactive-surface').forEach((surface) => {
+      let lastWave = 0;
+      let lastX = -1000;
+      let lastY = -1000;
+      let queuedFrame = 0;
+      let pendingPosition = null;
+      const updateGlow = () => {
+        queuedFrame = 0;
+        if (!pendingPosition) return;
+        const { x, y, width, height } = pendingPosition;
+        surface.style.setProperty('--spot-x', `${(100 * x / width).toFixed(2)}%`);
+        surface.style.setProperty('--spot-y', `${(100 * y / height).toFixed(2)}%`);
+      };
+      const makeWave = (x, y) => {
+        const ripple = document.createElement('span');
+        ripple.className = 'hover-ripple';
+        ripple.setAttribute('aria-hidden', 'true');
+        ripple.style.setProperty('--ripple-x', `${x}px`);
+        ripple.style.setProperty('--ripple-y', `${y}px`);
+        ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+        surface.appendChild(ripple);
+      };
+      surface.addEventListener('pointerenter', (event) => {
+        if (event.pointerType !== 'mouse') return;
+        surface.classList.add('is-pointer-active');
+        // Let the first move create the first ripple, so the interaction feels gentle.
+        lastWave = 0;
+        lastX = -1000;
+        lastY = -1000;
+      });
+      surface.addEventListener('pointermove', (event) => {
+        if (event.pointerType !== 'mouse') return;
+        const rect = surface.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        pendingPosition = { x, y, width: rect.width, height: rect.height };
+        if (!queuedFrame) queuedFrame = requestAnimationFrame(updateGlow);
+        const now = performance.now();
+        const traveled = Math.hypot(x - lastX, y - lastY);
+        // Throttle decorative DOM nodes; no continuous physics loop is needed.
+        if (traveled > 48 && now - lastWave > 270) {
+          makeWave(x, y);
+          lastWave = now;
+          lastX = x;
+          lastY = y;
+        }
+      }, { passive: true });
+      surface.addEventListener('pointerleave', () => {
+        surface.classList.remove('is-pointer-active');
+        pendingPosition = null;
+        if (queuedFrame) cancelAnimationFrame(queuedFrame);
+        queuedFrame = 0;
+      });
+    });
+  }
+
   // Give navigation links a quiet active-state cue while scrolling.
   const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
   if ('IntersectionObserver' in window && sectionLinks.length) {
