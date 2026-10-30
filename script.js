@@ -1,56 +1,77 @@
-// Customize optional public links here. Empty entries are intentionally hidden.
-const PROFILE = {
-  github: 'https://github.com/kervino', // Public profile; project repos can be added later
-  resume: '', // Example: 'assets/Kervin_Ong_Resume.pdf' (add the file first)
-  email: '',  // Example: 'hello@example.com'
-};
-
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.getElementById('primary-nav');
-if (menuButton && nav) {
-  const closeMenu = () => {
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Open navigation');
-    nav.classList.remove('is-open');
-    document.body.classList.remove('menu-open');
+(function () {
+  'use strict';
+  const root = document.documentElement;
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('[data-theme-toggle]');
+  const stored = (() => { try { return localStorage.getItem('ko-theme'); } catch { return null; } })();
+  // Light-first design, but honor an explicit choice from a previous visit.
+  root.dataset.theme = stored === 'dark' ? 'dark' : 'light';
+  const syncTheme = () => {
+    const isDark = root.dataset.theme === 'dark';
+    toggle?.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    toggle?.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#1E1E1D' : '#FAF8F5');
   };
-  menuButton.addEventListener('click', () => {
-    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', String(!isOpen));
-    menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
-    nav.classList.toggle('is-open', !isOpen);
-    document.body.classList.toggle('menu-open', !isOpen);
+  syncTheme();
+  toggle?.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('ko-theme', root.dataset.theme); } catch { /* no storage is fine */ }
+    syncTheme();
   });
-  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
-  window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
-}
 
-if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
+  // Subtle scroll-responsive navigation, with no navigation delay.
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 18);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  // The content starts visible if JS is unavailable or motion is reduced.
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, { threshold: .07, rootMargin: '0px 0px -25px 0px' });
+    reveals.forEach((element) => observer.observe(element));
+    root.classList.add('js-ready');
+  }
+
+  // Project categories: default shows all projects, and no content requires filtering.
+  const filterButtons = [...document.querySelectorAll('[data-filter]')];
+  const cards = [...document.querySelectorAll('[data-category]')];
+  const emptyNotice = document.querySelector('.no-results');
+  filterButtons.forEach((button) => button.addEventListener('click', () => {
+    const selected = button.dataset.filter;
+    filterButtons.forEach((item) => {
+      const active = item === button;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-pressed', String(active));
     });
-  }, { threshold: 0.07, rootMargin: '0px 0px -25px 0px' });
-  document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-} else {
-  document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
-}
+    let shown = 0;
+    cards.forEach((card) => {
+      const matches = selected === 'all' || card.dataset.category.split(' ').includes(selected);
+      card.classList.toggle('is-filtered-out', !matches);
+      card.hidden = !matches;
+      if (matches) shown++;
+    });
+    if (emptyNotice) emptyNotice.hidden = shown > 0;
+  }));
 
-const extraLinks = document.getElementById('additional-links');
-if (extraLinks) {
-  const links = [
-    PROFILE.github && { label: 'GitHub ↗', href: PROFILE.github },
-    PROFILE.resume && { label: 'Resume ↗', href: PROFILE.resume },
-    PROFILE.email && { label: 'Email ↗', href: `mailto:${PROFILE.email}` },
-  ].filter(Boolean);
-  links.forEach(({ label, href }) => {
-    const anchor = document.createElement('a');
-    anchor.href = href;
-    anchor.textContent = label;
-    if (!href.startsWith('mailto:')) { anchor.target = '_blank'; anchor.rel = 'noopener noreferrer'; }
-    extraLinks.appendChild(anchor);
-  });
-}
-const year = document.getElementById('footer-year');
-if (year) year.textContent = String(new Date().getFullYear());
+  // Give navigation links a quiet active-state cue while scrolling.
+  const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  if ('IntersectionObserver' in window && sectionLinks.length) {
+    const targets = sectionLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const matches = entries.filter(e => e.isIntersecting).sort((a,b)=> b.intersectionRatio-a.intersectionRatio);
+      if (!matches.length) return;
+      sectionLinks.forEach(link => {
+        link.classList.toggle('is-current', link.getAttribute('href') === '#' + matches[0].target.id);
+      });
+    }, { rootMargin: '-24% 0px -55% 0px' });
+    targets.forEach(node => sectionObserver.observe(node));
+  }
+})();

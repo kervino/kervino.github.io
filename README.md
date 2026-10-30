@@ -1,34 +1,34 @@
-# Kervin Ong — Portfolio
+# Kervin Ong — Portfolio V3
 
-Personal portfolio website built with **HTML, CSS and JavaScript**. This repository is intended to host a static GitHub Pages site at **https://kervino.github.io/** (after publishing).
+A warm, recruiter-friendly technical portfolio using **Space Grotesk** for headings, **Manrope** for body copy, and **IBM Plex Mono** for short technical labels.
 
-## Preview locally
+## Preview / run
 
-Double-click `index.html` or open it in VS Code using a Live Server extension. No build tools are required.
+Open `index.html` in your browser, or serve the directory locally:
 
-## Publish
+```bash
+python -m http.server 8000
+```
 
-Read **[PUBLISHING.md](PUBLISHING.md)** for the exact GitHub Pages setup, including the correct repository name (`kervino.github.io`), browser upload steps, Git commands and troubleshooting.
+Then visit `http://localhost:8000`.
 
-## Edit content
+No build step, frameworks, or dependencies are required. The design uses a Google Fonts stylesheet when an internet connection is available, with system-font fallbacks when offline.
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | Homepage, about, skills, project cards and contact area |
-| `styles.css` | Site styling, color palette and responsive layout |
-| `script.js` | Mobile navigation and optional links (GitHub, email and resume) |
-| `projects/wayforge.html` | Wayforge / RTIS 2 case study |
-| `projects/dot-product.html` | Dot product optimization case study |
-| `projects/graphics.html` | Draft graphics/spatial structures case study |
-| `assets/favicon.svg` | Browser favicon |
+## What's new in V3
 
-The GitHub profile link is already set to `https://github.com/kervino`. Resume and email fields remain blank until you add them. The cybersecurity project is labeled **planned**, and the graphics write-up is labeled **in progress**.
+- Warm off-white/charcoal/copper palette and a coordinated optional dark theme.
+- New typography, generous spacing, and polished project-first layout.
+- Tasteful motion: soft entrance and scroll reveals, card hover, responsive buttons and animated terminal vignette.
+- Functional project category filters and a persistent light/dark switch.
+- Four project detail pages, responsive design, focus states, skip link and reduced-motion support.
+- Lightweight static assets; no custom cursor or intro animation.
 
-## Before sharing publicly
+## Important before publishing
 
-- Verify all descriptions accurately reflect your personal work and contributions.
-- Only share team, coursework, or internship material when permitted.
-- Replace illustrative graphics with your own real screenshots, demo videos or benchmarks over time.
-- Add code links once individual repositories are public and you have permission to share them.
+- Project art is **illustrative**, not a screenshot of a running project. Replace with real screenshots/diagrams where possible.
+- The hero's packet counts are drawn from an example NetLens capture (34 TCP, 18 UDP, 4 other, 56 total), not live data.
+- Current outbound project GitHub links point to the main GitHub profile; replace with direct repository URLs once verified.
+- No resume download or email address has been fabricated. Add a verified resume link and contact email when ready.
+- Check all educational/technical descriptions for current accuracy before posting publicly.
 
-This repository does not include private RTIS/team source code.
+All rights to the authored site code and original vector illustrations belong to the site owner. Google Fonts are requested from Google's public stylesheet when available; there are no font files included.
