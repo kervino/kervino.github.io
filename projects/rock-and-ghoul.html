@@ -18,6 +18,25 @@
       }
     } catch (error) {}
   </script>
+
+  <style>
+    .gameplay-video {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #171717;
+      margin: 36px 0;
+    }
+
+    .gameplay-video video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 650px;
+      object-fit: contain;
+    }
+  </style>
+
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -64,14 +83,12 @@
       </dl>
 
       <!-- Replace this title card with a real gameplay screenshot when available. -->
-      <div class="art case-art" style="min-height:330px;display:grid;place-items:center;text-align:center;background:linear-gradient(140deg,#322e35,#544352 58%,#946b5d);color:#fff;border-radius:16px;padding:30px">
-        <div>
-          <p style="font:500 12px var(--mono-font);letter-spacing:.2em;opacity:.75">2D ACTION GAME</p>
-          <div style="font:700 clamp(44px,7vw,80px)/1 var(--display-font);letter-spacing:-.07em">
-            ROCK <span style="color:#e9b69b">&amp;</span> GHOUL
-          </div>
-          <p style="font:500 12px var(--mono-font);margin-top:20px;opacity:.8">C++ / OpenGL / Custom Engine</p>
-        </div>
+      <div class="gameplay-video">
+        <video controls playsinline preload="metadata"
+              aria-label="Rock and Ghoul gameplay demonstration">
+          <source src="../assets/Gameplay.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
       </div>
 
       <div class="case-content">
@@ -105,7 +122,7 @@
             <h2>Gameplay</h2>
             <p>
               The game includes movement, dashing, melee attacks, and spells.
-              I plan to feature a short recording of the finished game here.
+              The short recording of the finished game is displayed above.
             </p>
 
             <!--

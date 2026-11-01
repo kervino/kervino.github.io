@@ -37,7 +37,12 @@
       position: relative;
       overflow: hidden;
       color: #fff;
-      background: linear-gradient(140deg, #322e35, #544352 58%, #946b5d);
+      .project-grid .rock-ghoul-card .rock-ghoul-art img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
     .rock-ghoul-art-inner { position: relative; z-index: 1; padding: 24px 20px; }
     .rock-ghoul-eyebrow, .rock-ghoul-tech {
@@ -164,19 +169,19 @@
     -->
     <article class="project-card reveal" data-category="engineering">
       <a class="stretch" href="projects/graphics-and-systems.html" aria-label="Read the Graphics and Systems case study">
-        <div class="art graphics reactive-surface"><img src="assets/Graphics.png" alt="Illustrated 3D wireframe geometry" loading="lazy"><span class="art-label">04 / REAL-TIME SYSTEMS</span></div>
+        <div class="art graphics reactive-surface"><img src="assets/Graphics.png" alt="Illustrated 3D wireframe geometry" loading="lazy"><span class="art-label">03 / REAL-TIME SYSTEMS</span></div>
         <div class="project-details"><div class="card-meta"><span>ACADEMIC WORK</span><span class="tag">Course projects</span></div><h3 class="card-title">Real-Time Rendering <span class="title-arrow" aria-hidden="true">↗</span></h3><p class="card-description">Exploring real-time rendering through C++ and OpenGL, with hands-on work involving GLSL shaders, lighting, texture mapping, and visual effects.</p><div class="card-footer"><div class="stack"><span>C++</span><span>OpenGL</span><span>GLSL</span></div><span class="card-view">Explore <span aria-hidden="true">↗</span></span></div></div>
       </a>
     </article>
     <article class="project-card rock-ghoul-card reveal" data-category="engineering">
       <a class="stretch" href="projects/rock-and-ghoul.html" aria-label="Read the Rock &amp; Ghoul case study">
         <div class="art reactive-surface rock-ghoul-art">
-          <div class="rock-ghoul-art-inner">
-            <span class="rock-ghoul-eyebrow">2D GAME PROJECT</span>
-            <div class="rock-ghoul-wordmark">ROCK <span>&amp;</span> GHOUL</div>
-            <span class="rock-ghoul-tech">C++ / OpenGL</span>
-          </div>
-          <span class="art-label">05 / GAME DEVELOPMENT</span>
+          <img
+            src="assets/Game.png"
+            alt="Rock &amp; Ghoul gameplay screenshot"
+            loading="lazy"
+          >
+          <span class="art-label">04 / GAME DEVELOPMENT</span>
         </div>
         <div class="project-details">
           <div class="card-meta">
