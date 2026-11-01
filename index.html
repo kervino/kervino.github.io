@@ -11,6 +11,67 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=37">
   <script>try{const t=localStorage.getItem('ko-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
+  <!-- Keep Rock & Ghoul in the same stacked card layout as the other projects. -->
+  <style>
+    .project-grid > .rock-ghoul-card {
+      grid-column: auto !important;
+      grid-row: auto !important;
+      width: 100%;
+    }
+    .project-grid > .rock-ghoul-card > .stretch {
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100%;
+    }
+    .project-grid .rock-ghoul-card .rock-ghoul-art {
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      aspect-ratio: 16 / 10;
+      flex: 0 0 auto !important;
+      box-sizing: border-box;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background: linear-gradient(140deg, #322e35, #544352 58%, #946b5d);
+    }
+    .rock-ghoul-art-inner { position: relative; z-index: 1; padding: 24px 20px; }
+    .rock-ghoul-eyebrow, .rock-ghoul-tech {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .12em;
+      opacity: .78;
+    }
+    .rock-ghoul-wordmark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 46px);
+      letter-spacing: -.06em;
+      line-height: 1.1;
+      margin: 12px 0;
+    }
+    .rock-ghoul-wordmark span { color: #e9b69b; }
+    .project-grid .rock-ghoul-card .project-details {
+      width: 100% !important;
+      min-width: 0;
+      flex: 1 1 auto !important;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Override existing card ordering rules: artwork always comes first. */
+    .project-grid > .rock-ghoul-card > .stretch > .rock-ghoul-art {
+      order: -1 !important;
+    }
+    .project-grid > .rock-ghoul-card > .stretch > .project-details {
+      order: 1 !important;
+    }
+    .rock-ghoul-card .card-footer { margin-top: auto; }
+  </style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -64,7 +125,7 @@
   </div>
 </section>
 
-<div class="wrap intro-divider"><span>SELECTED WORK</span><span aria-hidden="true">↘</span><span>01 — 05</span></div>
+<div class="wrap intro-divider"><span>SELECTED WORK</span><span aria-hidden="true">↘</span><span>01 — 04</span></div>
 
 <section id="projects" class="wrap section projects-section" aria-labelledby="projects-title">
   <div class="section-header reveal">
@@ -93,25 +154,42 @@
         <div class="project-details"><div class="card-meta"><span>TEAM PROJECT</span><span class="tag">Integration prototype</span></div><h3 class="card-title">Wayforge <span class="title-arrow" aria-hidden="true">↗</span></h3><p class="card-description">An indoor navigation platform. My work focuses on integrating the web applications with a C++ routing engine through a backend.</p><div class="card-footer"><div class="stack"><span>TypeScript</span><span>Node.js</span><span>C++ API</span></div><span class="card-view">Explore <span aria-hidden="true">↗</span></span></div></div>
       </a>
     </article>
+    <!--
     <article class="project-card reveal" data-category="security">
       <a class="stretch" href="projects/embedded-security-lab.html" aria-label="Read the Embedded Security Lab case study">
         <div class="art security reactive-surface"><img src="assets/security.svg" alt="Illustrated firmware filesystem inspection terminal" loading="lazy"><span class="art-label">03 / SECURITY RESEARCH</span></div>
         <div class="project-details"><div class="card-meta"><span>PERSONAL PROJECT</span><span class="tag">In progress</span></div><h3 class="card-title">Embedded Security Lab <span class="title-arrow" aria-hidden="true">↗</span></h3><p class="card-description">Learning firmware and embedded-software security assessment through a controlled lab, beginning with filesystem inspection.</p><div class="card-footer"><div class="stack"><span>Python</span><span>Firmware</span><span>Security</span></div><span class="card-view">Explore <span aria-hidden="true">↗</span></span></div></div>
       </a>
     </article>
+    -->
     <article class="project-card reveal" data-category="engineering">
       <a class="stretch" href="projects/graphics-and-systems.html" aria-label="Read the Graphics and Systems case study">
         <div class="art graphics reactive-surface"><img src="assets/Graphics.png" alt="Illustrated 3D wireframe geometry" loading="lazy"><span class="art-label">04 / REAL-TIME SYSTEMS</span></div>
         <div class="project-details"><div class="card-meta"><span>ACADEMIC WORK</span><span class="tag">Course projects</span></div><h3 class="card-title">Real-Time Rendering <span class="title-arrow" aria-hidden="true">↗</span></h3><p class="card-description">Exploring real-time rendering through C++ and OpenGL, with hands-on work involving GLSL shaders, lighting, texture mapping, and visual effects.</p><div class="card-footer"><div class="stack"><span>C++</span><span>OpenGL</span><span>GLSL</span></div><span class="card-view">Explore <span aria-hidden="true">↗</span></span></div></div>
       </a>
     </article>
-    <article class="project-card reveal" data-category="engineering">
+    <article class="project-card rock-ghoul-card reveal" data-category="engineering">
       <a class="stretch" href="projects/rock-and-ghoul.html" aria-label="Read the Rock &amp; Ghoul case study">
-        <div class="art graphics reactive-surface" style="background:linear-gradient(140deg,#322e35,#544352 58%,#946b5d);color:#fff">
-          <div style="text-align:center;padding:40px 20px;position:relative;z-index:1"><span style="font:500 12px var(--mono-font);letter-spacing:.2em;opacity:.75">2D GAME PROJECT</span><div style="font:700 clamp(30px,4vw,53px)/1.05 var(--display-font);letter-spacing:-.06em;margin-top:16px">ROCK <span style="color:#e9b69b">&amp;</span> GHOUL</div><span style="display:block;margin-top:18px;font:500 11px var(--mono-font);opacity:.75">C++ / OpenGL</span></div>
+        <div class="art reactive-surface rock-ghoul-art">
+          <div class="rock-ghoul-art-inner">
+            <span class="rock-ghoul-eyebrow">2D GAME PROJECT</span>
+            <div class="rock-ghoul-wordmark">ROCK <span>&amp;</span> GHOUL</div>
+            <span class="rock-ghoul-tech">C++ / OpenGL</span>
+          </div>
           <span class="art-label">05 / GAME DEVELOPMENT</span>
         </div>
-        <div class="project-details"><div class="card-meta"><span>TEAM PROJECT</span><span class="tag">Academic project</span></div><h3 class="card-title">Rock &amp; Ghoul <span class="title-arrow" aria-hidden="true">↗</span></h3><p class="card-description">A 2D game built with C++ and OpenGL as part of a team project, combining graphics programming with interactive gameplay.</p><div class="card-footer"><div class="stack"><span>C++</span><span>OpenGL</span><span>Game development</span></div><span class="card-view">Explore <span aria-hidden="true">↗</span></span></div></div>
+        <div class="project-details">
+          <div class="card-meta">
+            <span>TEAM PROJECT</span>
+            <span class="tag">Academic project</span>
+          </div>
+          <h3 class="card-title">Rock &amp; Ghoul <span class="title-arrow" aria-hidden="true">↗</span></h3>
+          <p class="card-description">A 2D action game built with a custom C++ engine. As the Graphics Champion Programmer, I worked on textures, render layers, cameras, and shaders.</p>
+          <div class="card-footer">
+            <div class="stack"><span>C++</span><span>OpenGL</span><span>Game development</span></div>
+            <span class="card-view">Explore <span aria-hidden="true">↗</span></span>
+          </div>
+        </div>
       </a>
     </article>
   </div>
