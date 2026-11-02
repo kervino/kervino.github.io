@@ -13,6 +13,23 @@
   <script>
    try{const t=localStorage.getItem('ko-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}catch(e){}
   </script>
+  <style>
+  .project-video {
+    width: 100%;
+    margin: 36px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #171717;
+  }
+
+  .project-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 650px;
+    object-fit: contain;
+  }
+</style>
  </head>
  <body>
   <a class="skip-link" href="#main">
@@ -97,9 +114,18 @@
       </dd>
      </div>
     </dl>
-    <div class="art case-art netlens">
-     <img alt="NetLens illustrative project visual" src="../assets/netlens.svg"/>
-    </div>
+    <!-- NetLens demonstration video -->
+<div class="project-video">
+  <video
+    controls
+    playsinline
+    preload="metadata"
+    aria-label="NetLens network traffic analysis demonstration"
+  >
+    <source src="../assets/NetLens.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
     <div class="case-content">
      <aside>
       <div class="case-toc">
