@@ -1,3 +1,307 @@
+
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#FAF8F5" name="theme-color"/><meta content="Technical write-up for Wayforge by Kervin Ong." name="description"/><title>Wayforge — Project | Kervin Ong</title><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="../styles.css?v=34" rel="stylesheet"/><script>try{const t=localStorage.getItem('ko-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}catch(e){}</script></head><body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap nav"><a aria-label="Kervin Ong homepage" class="logo" href="../index.html">ko<span>.</span></a><div class="nav-right"><nav aria-label="Main navigation" class="nav-links"><a href="../index.html#projects">Projects</a><a href="../index.html#about">About</a><a href="../index.html#contact">Contact</a></nav><div class="nav-actions"><button aria-label="Toggle theme" class="icon-button" data-theme-toggle="" title="Toggle theme" type="button"><svg aria-hidden="true" class="moon" viewbox="0 0 24 24"><path d="M20 15.7A8.5 8.5 0 0 1 8.3 4 8.5 8.5 0 1 0 20 15.7Z"></path></svg><svg aria-hidden="true" class="sun" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg></button></div></div></div></header><main id="main"><div class="wrap"><a class="back-link" href="../index.html#projects">← Back to projects</a><header class="case-hero"><p class="kicker">Selected work / Backend / integration role in a team</p><h1>Wayforge</h1><p class="case-lead">Connecting an indoor navigation experience to the routing engine behind it.</p></header><dl class="case-meta"><div><dt>MY ROLE</dt><dd>Backend / integration role in a team</dd></div><div><dt>TECH STACK</dt><dd>Node.js · TypeScript · C++ Engine API</dd></div><div><dt>STATUS</dt><dd>Integration prototype</dd></div></dl><div class="art case-art wayforge"><img alt="Wayforge illustrative project visual" src="../assets/wayforge.svg"/></div><div class="case-content"><aside><div class="case-toc">/ PROJECT NOTES<br/><br/>01 — Overview<br/>02 — Work<br/>03 — Approach<br/>04 — Next steps</div></aside><div class="case-body"><section><h2>Overview</h2><p>Wayforge is a team project for indoor navigation. The system brings together a building editor, a navigation web app, a backend service, and a native routing engine. My area of responsibility is connecting the web-facing components to routing functionality through backend interfaces.</p></section><section><h2>My contributions</h2><ul><li>Set up the Node.js and TypeScript backend development environment.</li><li>Integrated calls to the native routing engine command-line interface.</li><li>Tested building registration, publishing, and route queries end to end.</li><li>Validated a step-free route request through the API and documented the integration for teammates.</li></ul></section><section><h2>Engineering focus</h2><p>The challenging part is coordinating data across independently developed components: building files created in the studio, engine API responses, backend endpoints, and the navigator UI. A clear interface contract reduces integration surprises.</p></section><section><h2>Next steps</h2><p>Complete integration with real building layouts from the studio website and the navigator frontend as those components are finalized.</p></section><div class="case-note">This is a collaborative academic project. The description focuses on my backend and integration responsibilities, not the entire team’s work.</div></div></div><div class="case-bottom"><a class="text-link" href="../index.html#projects">← All projects</a><a class="text-link" href="https://github.com/kervino" rel="noopener noreferrer" target="_blank">Visit my GitHub profile ↗</a></div></div></main><footer class="site-footer"><div class="wrap footer-inner"><span>© 2026 Kervin Ong</span><div class="footer-links"><a href="../index.html#projects">Projects</a><a href="https://github.com/kervino" rel="noopener noreferrer" target="_blank">GitHub ↗</a><a href="https://www.linkedin.com/in/kervin-ong/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a></div></div></footer><script defer="" src="../script.js?v=34"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF8F5">
+  <meta name="description" content="Wayforge — backend and integration work by Kervin Ong for an indoor navigation project.">
+
+  <title>Wayforge — Project | Kervin Ong</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <!-- Portfolio styling -->
+  <link rel="stylesheet" href="../styles.css?v=34">
+
+  <!-- Video styling -->
+  <style>
+    .project-video {
+      width: 100%;
+      margin: 36px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #171717;
+    }
+
+    .project-video video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 650px;
+      object-fit: contain;
+    }
+  </style>
+
+  <!-- Restore theme preference -->
+  <script>
+    try {
+      const theme = localStorage.getItem('ko-theme');
+
+      if (theme === 'dark' || theme === 'light') {
+        document.documentElement.dataset.theme = theme;
+      }
+    } catch (error) {}
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a
+        class="logo"
+        href="../index.html"
+        aria-label="Kervin Ong homepage"
+      >
+        ko<span>.</span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="../index.html#projects">Projects</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            class="icon-button"
+            type="button"
+            data-theme-toggle
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            <svg class="moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 15.7A8.5 8.5 0 0 1 8.3 4 8.5 8.5 0 1 0 20 15.7Z"></path>
+            </svg>
+
+            <svg class="sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main">
+    <div class="wrap">
+
+      <a class="back-link" href="../index.html#projects">
+        ← Back to projects
+      </a>
+
+      <!-- Project introduction -->
+      <header class="case-hero">
+        <p class="kicker">
+          Selected work / Backend integration / Team project
+        </p>
+
+        <h1>Wayforge</h1>
+
+        <p class="case-lead">
+          Connecting an indoor navigation application to the
+          routing engine behind it.
+        </p>
+      </header>
+
+      <!-- Project details -->
+      <dl class="case-meta">
+        <div>
+          <dt>MY ROLE</dt>
+          <dd>Backend &amp; Integration</dd>
+        </div>
+
+        <div>
+          <dt>TECH STACK</dt>
+          <dd>Node.js · TypeScript · C++ Engine API</dd>
+        </div>
+
+        <div>
+          <dt>STATUS</dt>
+          <dd>Integration prototype</dd>
+        </div>
+      </dl>
+
+      <!-- Project demonstration video -->
+      <div class="project-video">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          aria-label="Wayforge indoor navigation demonstration"
+        >
+          <source
+            src="../assets/Wayforge.mp4"
+            type="video/mp4"
+          >
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Project write-up -->
+      <div class="case-content">
+
+        <!-- Sidebar -->
+        <aside>
+          <div class="case-toc">
+            / PROJECT NOTES<br><br>
+            01 — Overview<br>
+            02 — My contributions<br>
+            03 — Engineering focus<br>
+            04 — Next steps
+          </div>
+        </aside>
+
+        <!-- Main text -->
+        <div class="case-body">
+
+          <section>
+            <h2>Overview</h2>
+
+            <p>
+              Wayforge is a collaborative indoor navigation project.
+              It brings together a building editor, a navigation
+              web application, a backend service, and a native
+              C++ routing engine.
+            </p>
+
+            <p>
+              My responsibility is to connect the web applications
+              to the routing engine through backend interfaces,
+              allowing the different components to communicate
+              and process navigation requests.
+            </p>
+          </section>
+
+          <section>
+            <h2>My contributions</h2>
+
+            <ul>
+              <li>
+                Set up the Node.js and TypeScript backend
+                development environment.
+              </li>
+
+              <li>
+                Integrated calls to the native routing engine's
+                command-line interface.
+              </li>
+
+              <li>
+                Tested building registration, publishing, and
+                route queries end to end.
+              </li>
+
+              <li>
+                Validated step-free route requests through
+                the API.
+              </li>
+
+              <li>
+                Documented the backend integration so teammates
+                could connect their components.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Engineering focus</h2>
+
+            <p>
+              One of the main challenges is integrating components
+              developed by different members of the team.
+            </p>
+
+            <p>
+              Building layouts originate from the studio application,
+              route calculations are handled by the C++ engine,
+              and the backend exposes these functions to the
+              navigator interface.
+            </p>
+
+            <p>
+              Maintaining clear API contracts and testing each
+              connection helps identify integration issues before
+              they affect the complete navigation workflow.
+            </p>
+          </section>
+
+          <section>
+            <h2>Next steps</h2>
+
+            <p>
+              Complete integration with building layouts generated
+              by the studio application and connect the backend
+              to the navigator frontend as those components
+              are finalized.
+            </p>
+          </section>
+
+          <!-- Team attribution -->
+          <div class="case-note">
+            Wayforge is a collaborative academic project.
+            This page focuses on my backend and integration
+            responsibilities rather than the entire team's work.
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom navigation -->
+      <div class="case-bottom">
+        <a class="text-link" href="../index.html#projects">
+          ← All projects
+        </a>
+
+        <a
+          class="text-link"
+          href="https://github.com/kervino"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit my GitHub profile ↗
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Kervin Ong</span>
+
+      <div class="footer-links">
+        <a href="../index.html#projects">Projects</a>
+
+        <a
+          href="https://github.com/kervino"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/kervin-ong/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=34" defer></script>
+</body>
+</html>
